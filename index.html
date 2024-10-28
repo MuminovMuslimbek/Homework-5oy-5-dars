@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo_icon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Homework 5oy/5-dars</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__container container">
+            <a class="logo" href="index.html"><img src="images/logo_icon.png" alt="logo" width="45"></a>
+            <form id="filterForm">
+                <label for="filter__input1"></label>
+                <input id="filter__input1" type="number" required placeholder="Min card number">
+                <label for="filter__input2"></label>
+                <input id="filter__input2" type="number" required placeholder="Max card number">
+                <button id="filter__btn" type="submit">Filter <img src="images/icon/filter icon.png" alt="icon" width="25px"></button>
+            </form>
+            <form class="search" id="searchForm">
+                <label for="search"></label>
+                <input id="search" type="search" required placeholder="Search...">
+                <button type="submit"><img src="images/icon/iocn-search.svg" alt="icon search"></button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="main__container container">
+            <h2 id="searchTitile" style="display: none;">Shu kardlar mavjud:</h2>
+            <div id="notFound" style="display: none;">
+                <h4>Siz qidirib turgan card bu yerda mavjud emas!</h4>
+                <img src="images/icon/not_found.png" alt="not found" width="200px">
+            </div>
+            <h2 id="body_title">Majburiy masalalar:</h2>
+            <div class="card_main">
+                <div class="card">
+                    <h3><span style="color: #fff;"> 1.</span> **Foydalanuvchining ismi va familiyasidan iborat string kiriting. Har bir so'z bosh harf bilan boshlanadigan qilib qaytaruvchi funksiyani yozing.**</h3>
+                    <form>
+                        <input id="inputNumMandatory1" type="text" required placeholder="Ism va familiyangizni kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn1Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory1" readonly></textarea>
+                        <button id="clear1">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 2.</span> **Berilgan stringni aylantiruvchi funksiyani yozing. Stringni teskari shaklida qaytaring.**</h3>
+                    <form>
+                        <input id="inputNumMandatory2" type="text" required placeholder="Ism va familiyangizni kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn2Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory2" readonly></textarea>
+                        <button id="clear2">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 3.</span> **Massivdagi sonlarning o'rtacha qiymatini qaytaruvchi funksiyani yozing.**</h3>
+                    <form>
+                        <input id="inputNumMandatory3" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn3Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory3" readonly></textarea>
+                        <button id="clear3">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 4.</span> **Massivdagi har bir elementning uzunligini qaytaruvchi funksiyani yozing. Funksiya qabul qilgan massiv ichidagi so'zlarning uzunligini qaytarishi kerak.**</h3>
+                    <form>
+                        <input id="inputNumMandatory4" type="text" required placeholder="So'zlarni vergul bilan kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn4Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory4" readonly></textarea>
+                        <button id="clear4">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 5.</span> **Berilgan massivdagi barcha toq sonlarni chiqaruvchi funksiyani yozing.**</h3>
+                    <form>
+                        <input id="inputNumMandatory5" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn5Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory5" readonly></textarea>
+                        <button id="clear5">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 6.</span> **Ikki obyektni qabul qilib, ularni birlashtiruvchi funksiyani yozing.**</h3>
+                    <form class="obyekt_form">
+                        <label for="inputNumMandatory6$1">Name va Lastname kiriting:</label>
+                        <input id="inputNumMandatory6$1" type="text" placeholder="name:.., lastname:.." required>
+                        <label for="inputNumMandatory6$2">Age va Yearni kiriting:</label>
+                        <input id="inputNumMandatory6$2" type="text" placeholder="age:.., year:.." required>
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn6Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory6" readonly></textarea>
+                        <button id="clear6">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 7.</span> **Foydalanuvchidan string qabul qilib, undagi bo‘sh joylarni olib tashlaydigan funksiyani yozing.**</h3>
+                    <form>
+                        <input id="inputNumMandatory7" type="text" required placeholder="Qiymatni vergul bilan kiriting..">
+                    </form>
+                    <div class="result_text">
+                        <p>Result:</p>
+                        <button id="btn7Mandatory">Ko`rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="number" id="resultMandatory7" readonly></textarea>
+                        <button id="clear7">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 8.</span>**Obyektdagi barcha qiymatlarni massivga o‘tkazuvchi funksiyani yozing.**</h3>
+                    <form class="obyekt_form">
+                        <label for="inputNumMandatory8$1">Name va Lastname kiriting:</label>
+                        <input id="inputNumMandatory8$1" type="text" placeholder="name:.., lastname:.." required>
+                        <label for="inputNumMandatory8$2">Age va Yearni kiriting:</label>
+                        <input id="inputNumMandatory8$2" type="text" placeholder="age:.., year:.." required>
+                    </form>
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn8Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory8" readonly></textarea>
+                        <button id="clear8">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 9.</span> **Berilgan massivdagi sonlarning eng kichigi va eng kattasini aniqlab, obyekt sifatida qaytaruvchi funksiyani yozing (masalan, `{min: 2, max: 10}`).**</h3>
+                    <input id="inputNumMandatory9" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn9Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory9" readonly></textarea>
+                        <button id="clear9">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 10.</span>**Berilgan stringda nechta unli harf borligini hisoblovchi funksiyani yozing.**</h3>
+                    <input id="inputNumMandatory10" type="text" required placeholder="Stringni kiriting..">
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn10Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory10" readonly></textarea>
+                        <button id="clear10">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 11.</span>**Massivni qabul qilib, har bir elementiga 2 qo‘shadigan va qaytadigan funksiyani yozing.**</h3>
+                    <input id="inputNumMandatory11" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn11Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory11" readonly></textarea>
+                        <button id="clear11">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 12.</span> **Massiv ichida eng uzun so'zni aniqlab qaytaruvchi funksiyani yozing.**</h3>
+                    <input id="inputNumMandatory12" type="text" required placeholder="Qiymatni vergul bilan kiriting..">
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn12Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory12" readonly></textarea>
+                        <button id="clear12">Clear</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3><span style="color: #fff;"> 13.</span>**Foydalanuvchidan massiv qabul qilib, uning ichidagi raqamlarni o‘rtacha qiymatidan katta bo‘lgan elementlarni ajratib qaytaruvchi funksiyani yozing.**</h3>
+                    <input id="inputNumMandatory13" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <div class="result_text">
+                        <p>Natija:</p>
+                        <button id="btn13Mandatory">Ko‘rish</button>
+                    </div>
+                    <div class="result">
+                        <textarea name="result" id="resultMandatory13" readonly></textarea>
+                        <button id="clear13">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
