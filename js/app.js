@@ -97,7 +97,7 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
 function result1() {
     let inp1 = document.getElementById("input1").value.trim()
     let inp2 = document.getElementById("input1n2").value.trim()
-    if (inp1 == "" || isNaN(inp1) && inp2 == "" || isNaN(inp2)) {
+    if (inp1 == "" && inp2 == "") {
         document.getElementById("result1").value = "Iltimos qiymatlarni qayta kiriting!"
         return
     }
