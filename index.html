@@ -28,351 +28,407 @@
         </div>
     </header>
     <main>
+        <div class="snowflakes" aria-hidden="true">
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
+            </div>
+            <div class="snowflake">
+                ❅
+            </div>
+            <div class="snowflake">
+                ❆
+            </div>
+            <div class="snowflake">
+                ❄
+            </div>
+        </div>
         <div class="main__container container">
             <h2 id="searchTitile" style="display: none;">Shu kardlar mavjud:</h2>
             <div id="notFound" style="display: none;">
                 <h4>Siz qidirib turgan card bu yerda mavjud emas!</h4>
                 <img src="images/icon/not_found.png" alt="not found" width="200px">
             </div>
-            <h2 id="body_title">Majburiy masalalar:</h2>
+            <h2 id="body_title">Massivlar bilan ishlash:</h2>
             <div class="card_main">
                 <div class="card">
-                    <h3><span style="color: #fff;"> 1.</span> **Foydalanuvchining ismi va familiyasidan iborat string kiriting. Har bir so'z bosh harf bilan boshlanadigan qilib qaytaruvchi funksiyani yozing.**</h3>
-                    <form>
-                        <input id="inputNumMandatory1" type="text" required placeholder="Ism va familiyangizni kiriting..">
-                    </form>
+                    <h3><span style="color: #fff;"> 1.</span>**Ikki massivning kesishmasini toping**: Ikkita massiv berilgan. Ulardagi umumiy elementlardan tashkil topgan yangi massiv yarating.**</h3>
+                    <input id="input1" type="text" placeholder="Birinchi sonni vergul bilan kiriting..">
+                    <input id="input1n2" type="text" placeholder="Ikkinchi sonni vergul bilan kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn1Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn1">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory1" readonly></textarea>
+                        <textarea name="result" id="result1" readonly></textarea>
                         <button id="clear1">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 2.</span> **Berilgan stringni aylantiruvchi funksiyani yozing. Stringni teskari shaklida qaytaring.**</h3>
-                    <form>
-                        <input id="inputNumMandatory2" type="text" required placeholder="Stringni kiriting..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 2.</span>**Massivdagi raqamlarni ko'paytirish**: Massiv elementlarini berilgan koeffitsiyentga ko'paytirib, natija massivini qaytaruvchi funksiya yozing.
+                    </h3>
+                    <input id="input2" type="text" placeholder="Massiv elementlarini vergul bilan kiriting..">
+                    <input id="input2n2" type="number" placeholder="Koeffitsiyentni kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn2Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn2">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory2" readonly></textarea>
+                        <textarea name="result" id="result2" readonly></textarea>
                         <button id="clear2">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 3.</span> **Massivdagi sonlarning o'rtacha qiymatini qaytaruvchi funksiyani yozing.**</h3>
-                    <form>
-                        <input id="inputNumMandatory3" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 3.</span>**Massivdagi musbat sonlar yig'indisi**: Massivdan musbat sonlarni tanlab, ularning yig'indisini hisoblang.
+                    </h3>
+                    <input id="input3" type="text" placeholder="Sonlarni vergul bilan kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn3Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn3">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory3" readonly></textarea>
+                        <textarea name="result" id="result3" readonly></textarea>
                         <button id="clear3">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 4.</span> **Massivdagi har bir elementning uzunligini qaytaruvchi funksiyani yozing. Funksiya qabul qilgan massiv ichidagi so'zlarning uzunligini qaytarishi kerak.**</h3>
-                    <form>
-                        <input id="inputNumMandatory4" type="text" required placeholder="So'zlarni vergul bilan kiriting..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 4.</span>**Nolni oxiriga o‘tkazing**: Berilgan massivdagi barcha `0`larni massiv oxiriga ko‘chiring, qolgan tartib o‘zgarmasligi kerak.
+                    </h3>
+                    <input id="input4" type="text" placeholder="Sonlarni vergul bilan kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn4Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn4">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory4" readonly></textarea>
+                        <textarea name="result" id="result4" readonly></textarea>
                         <button id="clear4">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 5.</span> **Berilgan massivdagi barcha toq sonlarni chiqaruvchi funksiyani yozing.**</h3>
-                    <form>
-                        <input id="inputNumMandatory5" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 5.</span>**Eng ko'p takrorlangan elementni toping**: Massivda eng ko‘p uchraydigan elementni va uning sonini qaytaruvchi funksiya yozing.
+                    </h3>
+                    <input id="input5" type="text" placeholder="Sonlarni vergul bilan kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn5Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn5">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory5" readonly></textarea>
+                        <textarea name="result" id="result5" readonly></textarea>
                         <button id="clear5">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 6.</span> **Ikki obyektni qabul qilib, ularni birlashtiruvchi funksiyani yozing.**</h3>
-                    <form class="obyekt_form">
-                        <label for="inputNumMandatory6$1">Name va Lastname kiriting:</label>
-                        <input id="inputNumMandatory6$1" type="text" placeholder="name:.., lastname:.." required>
-                        <label for="inputNumMandatory6$2">Age va Yearni kiriting:</label>
-                        <input id="inputNumMandatory6$2" type="text" placeholder="age:.., year:.." required>
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 6.</span>**Massivni ichma-ich massivlardan tozalang**: Ichma-ich massivlardan iborat massiv berilgan. Uni faqat bir darajali massivga o‘tkazing.
+                    </h3>
+                    <input id="input6" type="text" placeholder="Ichma-ich massivni kiriting (masalan: [[1, 2], [3, 4]])..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn6Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn6">Hisoblash</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory6" readonly></textarea>
+                        <textarea name="result" id="result6" readonly></textarea>
                         <button id="clear6">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 7.</span> **Foydalanuvchidan string qabul qilib, undagi bo‘sh joylarni olib tashlaydigan funksiyani yozing.**</h3>
-                    <form>
-                        <input id="inputNumMandatory7" type="text" required placeholder="Qiymatni vergul bilan kiriting..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 7.</span>**Ikki massivni birlashtiring**: Ikkita massiv berilgan, ularni birlashtirib, takroriy elementlarni olib tashlang.
+                    </h3>
+                    <input id="input7" type="text" placeholder="Birinchi sonni vergul bilan kiriting..">
+                    <input id="input7n2" type="text" placeholder="Ikkinchi sonni vergul bilan kiriting..">
                     <div class="result_text">
-                        <p>Result:</p>
-                        <button id="btn7Mandatory">Ko`rish</button>
+                        <p>Natija:</p>
+                        <button id="btn7">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="number" id="resultMandatory7" readonly></textarea>
+                        <textarea name="result" id="result7" readonly></textarea>
                         <button id="clear7">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 8.</span>**Obyektdagi barcha qiymatlarni massivga o‘tkazuvchi funksiyani yozing.**</h3>
-                    <form class="obyekt_form">
-                        <label for="inputNumMandatory8$1">Name va Lastname kiriting:</label>
-                        <input id="inputNumMandatory8$1" type="text" placeholder="name:.., lastname:.." required>
-                        <label for="inputNumMandatory8$2">Age va Yearni kiriting:</label>
-                        <input id="inputNumMandatory8$2" type="text" placeholder="age:.., year:.." required>
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 8.</span>**Massiv elementlarini toq/juft qilib ajrating**: Massivdagi toq va juft elementlarni alohida massivlarga ajratib qaytaring.
+                    </h3>
+                    <input id="input8" type="text" placeholder="Sonlarni vergul bilan kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn8Mandatory">Ko‘rish</button>
+                        <button id="btn8">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory8" readonly></textarea>
+                        <textarea name="result" id="result8" readonly></textarea>
                         <button id="clear8">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 9.</span> **Berilgan massivdagi sonlarning eng kichigi va eng kattasini aniqlab, obyekt sifatida qaytaruvchi funksiyani yozing (masalan, `{min: 2, max: 10}`).**</h3>
-                    <input id="inputNumMandatory9" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 9.</span>**Massivda ma'lum qiymat borligini tekshirish**: Massiv va qiymat berilgan. Funksiya massiv ichida qiymat mavjud bo‘lsa `true`, aks holda `false` qaytarsin.
+                    </h3>
+                    <input id="input9" type="text" placeholder="Sonlarni vergul bilan kiriting..">
+                    <input id="value9n2" type="text" placeholder="Tekshiriladigan qiymatni kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn9Mandatory">Ko‘rish</button>
+                        <button id="btn9">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory9" readonly></textarea>
+                        <textarea name="result" id="result9" readonly></textarea>
                         <button id="clear9">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 10.</span>**Berilgan stringda nechta unli harf borligini hisoblovchi funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory10" type="text" required placeholder="Stringni kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 10.</span>**Massivdagi eng katta va eng kichik elementni toping**: Massivdagi eng katta va eng kichik elementlarni qaytaruvchi funksiya yozing.
+                    </h3>
+                    <input id="input10" type="text" placeholder="Sonlarni vergul bilan kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn10Mandatory">Ko‘rish</button>
+                        <button id="btn10">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory10" readonly></textarea>
+                        <textarea name="result" id="result10" readonly></textarea>
                         <button id="clear10">Clear</button>
                     </div>
                 </div>
+            </div>
+            <h2 id="body_title2">Obyektlar bilan ishlash:</h2>
+            <div class="card_main">
                 <div class="card">
-                    <h3><span style="color: #fff;"> 11.</span>**Massivni qabul qilib, har bir elementiga 2 qo‘shadigan va qaytadigan funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory11" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 11.</span>**Obyektni tartiblang**: Obyekt ichidagi kalitlari bo‘yicha tartiblangan yangi obyekt hosil qiling.
+                    </h3>
+                    <input id="input11" type="text" placeholder="Obyektni kiriting (masalan: {'b': 2, 'a': 1})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn11Mandatory">Ko‘rish</button>
+                        <button id="btn11">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory11" readonly></textarea>
+                        <textarea name="result" id="result11" readonly></textarea>
                         <button id="clear11">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 12.</span> **Massiv ichida eng uzun so'zni aniqlab qaytaruvchi funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory12" type="text" required placeholder="Qiymatni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 12.</span>**Obyekt kalitlarini va qiymatlarini alohida massivga o‘tkazing**: Obyektdagi barcha kalitlar va qiymatlar alohida-alohida massivda qaytarilsin.
+                    </h3>
+                    <input id="input12" type="text" placeholder="Obyektni kiriting (masalan: {'b': 2, 'a': 1})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn12Mandatory">Ko‘rish</button>
+                        <button id="btn12">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory12" readonly></textarea>
+                        <textarea name="result" id="result12" readonly></textarea>
                         <button id="clear12">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 13.</span>**Foydalanuvchidan massiv qabul qilib, uning ichidagi raqamlarni o‘rtacha qiymatidan katta bo‘lgan elementlarni ajratib qaytaruvchi funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory13" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 13.</span>**Obyekt birlashtirish**: Ikkita obyekt berilgan. Ularni birlashtirib, umumiy kalitlarni yangilash orqali natijaviy obyekt yarating.
+                    </h3>
+                    <input id="input13" type="text" placeholder="Birinchi obyektni kiriting (masalan: {'a': 1, 'b': 2})..">
+                    <input id="input13n2" type="text" placeholder="Ikkinchi obyektni kiriting (masalan: {'b': 3, 'c': 4})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn13Mandatory">Ko‘rish</button>
+                        <button id="btn13">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory13" readonly></textarea>
+                        <textarea name="result" id="result13" readonly></textarea>
                         <button id="clear13">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 14.</span>**Stringni qabul qilib, u bilan boshlanadigan va tugaydigan belgini olib tashlaydigan funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory14" type="text" required placeholder="Stringni kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 14.</span>**Qiymatlarni hisoblash**: Berilgan obyekt qiymatlarining umumiy yig‘indisini hisoblang (qiymatlar sonlar bo'lishi kerak).
+                    </h3>
+                    <input id="input14" type="text" placeholder="Obyektni kiriting (masalan: {'a': 1, 'b': 2})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn14Mandatory">Ko‘rish</button>
+                        <button id="btn14">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory14" readonly></textarea>
+                        <textarea name="result" id="result14" readonly></textarea>
                         <button id="clear14">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 15.</span>**Berilgan massivdagi barcha raqamlarning kvadratlari yig'indisini hisoblaydigan funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory15" type="text" required placeholder="Sonlarni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 15.</span>**Kalitni qayta nomlash**: Obyekt ichidagi bir kalit nomini yangi nomga o'zgartiring va qaytaring.
+                    </h3>
+                    <input id="input15" type="text" placeholder="Obyektni kiriting (masalan: {'oldKey': 1, 'b': 2})..">
+                    <input id="input15n2" type="text" placeholder="Yangi kalit nomini kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn15Mandatory">Ko‘rish</button>
+                        <button id="btn15">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory15" readonly></textarea>
+                        <textarea name="result" id="result15" readonly></textarea>
                         <button id="clear15">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 16.</span>**Massivni teskari qilib qaytaruvchi funksiyani yozing (bunda massiv ichidagi elementlar teskari tartibda joylashadi).**</h3>
-                    <input id="inputNumMandatory16" type="text" required placeholder="Qiymatni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 16.</span>**Kalitni olib tashlash**: Berilgan obyekt va kalit orqali kalitni olib tashlab, yangi obyekt qaytaring.
+                    </h3>
+                    <input id="input16" type="text" placeholder="Obyektni kiriting (masalan: {'a': 1, 'b': 2})..">
+                    <input id="input16n2" type="text" placeholder="Olib tashlanadigan kalitni kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn16Mandatory">Ko‘rish</button>
+                        <button id="btn16">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory16" readonly></textarea>
+                        <textarea name="result" id="result16" readonly></textarea>
                         <button id="clear16">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 17.</span>**Stringni qabul qilib, uni har bir so‘zini katta harflarda yozib qaytaradigan funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory17" type="text" required placeholder="Stringni vergul bilan kiriting..">
+                    <h3>
+                        <span style="color: #fff;"> 17.</span>**Bir xil kalitli obyektlarni birlashtirish**: Berilgan massiv ichidagi obyektlarni bir xil kalit bo‘yicha guruhlab, yangi obyekt yarating.
+                    </h3>
+                    <input id="input17" type="text" placeholder="Massivni kiriting (masalan: [{'key': 'a', 'value': 1}, {'key': 'b', 'value': 2}, {'key': 'a', 'value': 3}])..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn17Mandatory">Ko‘rish</button>
+                        <button id="btn17">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory17" readonly></textarea>
+                        <textarea name="result" id="result17" readonly></textarea>
                         <button id="clear17">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 18.</span>**Obyektlar massividan berilgan yoshdan kattalarni ajratib qaytaradigan funksiyani yozing.**</h3>
-                    <form class="obyekt_form">
-                        <label for="inputNumMandatory18">Yoshlarni kiriting:</label>
-                        <input id="inputNumMandatory18" type="text" placeholder="18, 21, 16, .." required>
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 18.</span>**Obyekt ichida massivlarni yig'ish**: Obyekt ichidagi barcha massivlarni bitta massivga yig‘ing va natijani qaytaring.
+                    </h3>
+                    <input id="input18" type="text" placeholder="Obyektni kiriting (masalan: {'a': [1, 2], 'b': [3, 4], 'c': [5]})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn18Mandatory">Ko‘rish</button>
+                        <button id="btn18">Yig'Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory18" readonly></textarea>
+                        <textarea name="result" id="result18" readonly></textarea>
                         <button id="clear18">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 19.</span>**Massiv ichida nechta marta berilgan element uchrashganini aniqlovchi funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory19$1" type="text" placeholder="Qiymatni kiriting" required>
-                    <input id="inputNumMandatory19$2" type="text" placeholder="Ko'p martda qaytarilgan elementni topish" required>
+                    <h3>
+                        <span style="color: #fff;"> 19.</span>**O‘xshash obyektlarni chiqarish**: Berilgan ikkita massiv ichidagi obyektlarning umumiy qismlarini toping.
+                    </h3>
+                    <input id="input19a" type="text" placeholder="Birinchi massivni kiriting (masalan: [{'id': 1}, {'id': 2}])..">
+                    <input id="input19b" type="text" placeholder="Ikkinchi massivni kiriting (masalan: [{'id': 2}, {'id': 3}])..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn19Mandatory">Ko‘rish</button>
+                        <button id="btn19">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory19" readonly></textarea>
+                        <textarea name="result" id="result19" readonly></textarea>
                         <button id="clear19">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 20.</span>**Ikki string qabul qilib, ularning umumiy harflarini ajratib qaytaradigan funksiyani yozing.**</h3>
-                    <input id="inputNumMandatory20$1" type="text" placeholder="Birinchi qiymatni kiriting.." required>
-                    <input id="inputNumMandatory20$2" type="text" placeholder="Ikkinchi qiymatni kiriting.." required>
+                    <h3>
+                        <span style="color: #fff;"> 20.</span>**Obyektning chuqurligini aniqlash**: Obyekt ichma-ich obyektlardan tashkil topgan bo‘lsa, uning chuqurligini (depth) topadigan funksiya yozing.
+                    </h3>
+                    <input id="input20" type="text" placeholder="Obyektni kiriting (masalan: {'a': {'b': {'c': 1}}})..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn20Mandatory">Ko‘rish</button>
+                        <button id="btn20">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultMandatory20" readonly></textarea>
+                        <textarea name="result" id="result20" readonly></textarea>
                         <button id="clear20">Clear</button>
                     </div>
                 </div>
             </div>
-            <h2 id="body_title2">Ixtiyoriy masalalar:</h2>
+            <h2>String bilan ishlash:</h2>
             <div class="card_main">
                 <div class="card">
-                    <h3><span style="color: #fff;"> 1.</span>**Berilgan string ichida eng ko'p uchrayotgan belgini topuvchi funksiyani yozing. Masalan, "JavaScript" so'zida eng ko'p uchrayotgan belgi "a".**</h3>
-                    <input id="inputNumOptional1" type="text" placeholder="Qiymatni kiriting.." required>
+                    <h3>
+                        <span style="color: #fff;"> 21.</span>**Palindromni tekshirish**: Berilgan so‘z yoki jumlaning palindrom ekanligini tekshiruvchi funksiya yozing (bo‘sh joy va katta-kichik harflarni inobatga olmang).
+                    </h3>
+                    <input id="input21" type="text" placeholder="So'zni yoki jumlani kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn1Optional">Ko‘rish</button>
+                        <button id="btn21">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultOptional1" readonly></textarea>
-                        <button id="clear1Optional">Clear</button>
+                        <textarea name="result" id="result21" readonly></textarea>
+                        <button id="clear21">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 2.</span>**Ikkita massiv qabul qilib, ulardagi o'xshash elementlarni qaytaruvchi funksiyani yozing. Funksiya faqat har ikkala massivda ham mavjud bo'lgan elementlarni o'z ichiga olgan yangi massivni qaytarsin.**</h3>
-                    <input id="inputNumOptional2$1" type="text" placeholder="Birinchi massivni qiymatini kiriting.." required>
-                    <input id="inputNumOptional2$2" type="text" placeholder="Ikkinchi massivni qiymatini kiriting.." required>
+                    <h3>
+                        <span style="color: #fff;"> 22.</span>**So‘zlarni tersga o‘girish**: Berilgan jumladagi so‘zlarni teskari tartibda joylashtiruvchi funksiya yozing.
+                    </h3>
+                    <input id="input22" type="text" placeholder="Jumla kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn2Optional">Ko‘rish</button>
+                        <button id="btn22">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultOptional2" readonly></textarea>
-                        <button id="clear2Optional">Clear</button>
+                        <textarea name="result" id="result22" readonly></textarea>
+                        <button id="clear22">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 3.</span>**Massiv ichidagi obyektlarni berilgan kalit bo'yicha tartiblaydigan funksiyani yozing. Masalan, talabalarning ro'yxati bo'lib, har birida `{name: "Ism", age: son}`. Funksiya talabalarning yoshini
-                        oshish tartibida qaytarsin.**</h3>
-                    <form class="obyekt_form">
-                        <label for="inputNumOptional3">Talabalar ro'yxatini kiriting (Format: "Ism, yosh; Ism, yosh; ..."):</label>
-                        <input type="text" id="inputNumOptional3" placeholder="Masalan: Ali, 21; Vali, 19; Otabek, 23..">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 23.</span>**Eng uzun so‘zni toping**: Berilgan jumladagi eng uzun so‘zni topib, uni qaytaruvchi funksiya yozing.
+                    </h3>
+                    <input id="input23" type="text" placeholder="Jumla kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn3Optional">Ko‘rish</button>
+                        <button id="btn23">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultOptional3" readonly></textarea>
-                        <button id="clear3Optional">Clear</button>
+                        <textarea name="result" id="result23" readonly></textarea>
+                        <button id="clear23">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 4.</span>*Obyekt ichidagi har bir qiymatni tekshirib, agar son bo'lsa 2 ga ko'paytiruvchi funksiyani yozing. Funksiya obyektni o'zgartirmasdan, yangi obyektni qaytarsin.**</h3>
-                    <form class="obyekt_form">
-                        <label for="inputNumOptional4">Obyektni kiriting (Format: "kalit1: qiymat1, kalit2: qiymat2, .."):</label>
-                        <input type="text" id="inputNumOptional4" placeholder="Masalan: age: 21, name: Ali, height: 180">
-                    </form>
+                    <h3>
+                        <span style="color: #fff;"> 24.</span>**Bir harfni ko‘paytirish**: Berilgan string ichidagi ma’lum bir harfni ko‘paytirish kerak.
+                    </h3>
+                    <input id="input24" type="text" placeholder="String kiriting..">
+                    <input id="charToDuplicate" type="text" maxlength="1" placeholder="Ko‘paytiriladigan harf..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn4Optional">Ko‘rish</button>
+                        <button id="btn24">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultOptional4" readonly></textarea>
-                        <button id="clear4Optional">Clear</button>
+                        <textarea name="result" id="result24" readonly></textarea>
+                        <button id="clear24">Clear</button>
                     </div>
                 </div>
                 <div class="card">
-                    <h3><span style="color: #fff;"> 5.</span>**Massiv qabul qilib, ichidagi barcha sonlar yig'indisini hisoblaydigan, lekin faqat takrorlanmas sonlarni qo'shadigan funksiyani yozing. Masalan, `[1, 2, 2, 3, 4, 4]` uchun natija `10` bo'lishi
-                        kerak (1 + 2 + 3 + 4).**</h3>
-                    <input id="inputNumOptional5" type="text" placeholder="Sonlarni vergul bilan kiriting.." required>
+                    <h3>
+                        <span style="color: #fff;"> 25.</span>**Stringdan raqamlarni olib tashlash**: Berilgan string ichidan barcha raqamlarni olib tashlab, qolgan qismni qaytaring.
+                    </h3>
+                    <input id="input25" type="text" placeholder="String kiriting..">
                     <div class="result_text">
                         <p>Natija:</p>
-                        <button id="btn5Optional">Ko‘rish</button>
+                        <button id="btn25">Ko‘rish</button>
                     </div>
                     <div class="result">
-                        <textarea name="result" id="resultOptional5" readonly></textarea>
-                        <button id="clear5Optional">Clear</button>
+                        <textarea name="result" id="result25" readonly></textarea>
+                        <button id="clear25">Clear</button>
                     </div>
                 </div>
             </div>

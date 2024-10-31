@@ -92,651 +92,798 @@ document.getElementById("searchForm").addEventListener("submit", function(event)
     event.preventDefault();
 });
 
-// Majburiy masalalar:
+// Massivlar bilan ishlash:
 // N1:
-function resultMandatory1() {
-    let input1 = document.getElementById("inputNumMandatory1").value.trim();
-    if (input1 == "") {
-        document.getElementById("resultMandatory1").value = "Iltimos ismingizni qayta kiriting!"
+function result1() {
+    let inp1 = document.getElementById("input1").value.trim()
+    let inp2 = document.getElementById("input1n2").value.trim()
+    if (inp1 == "" || isNaN(inp1) && inp2 == "" || isNaN(inp2)) {
+        document.getElementById("result1").value = "Iltimos qiymatlarni qayta kiriting!"
         return
     }
-    let everyWords = input1.split(" ")
-    let result = everyWords.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ")
-    document.getElementById("resultMandatory1").value = result
-}
-document.getElementById("btn1Mandatory").addEventListener("click", resultMandatory1)
+    let arr1 = inp1.split(",");
+    let arr2 = inp2.split(",");
 
-function clearFildesNum1() {
-    document.getElementById("inputNumMandatory1").value = ""
-    document.getElementById("resultMandatory1").value = ""
+    let result = arr1.filter(value => arr2.includes(value));
+
+    document.getElementById("result1").value = result.join(", ");
 }
-document.getElementById("clear1").addEventListener("click", clearFildesNum1)
+document.getElementById("btn1").addEventListener("click", result1)
+
+function clear1() {
+    document.getElementById("input1").value = ""
+    document.getElementById("input1n2").value = ""
+    document.getElementById("result1").value = ""
+}
+document.getElementById("clear1").addEventListener("click", clear1)
 
 // N2:
-function resultMandatory2() {
-    let input2 = document.getElementById("inputNumMandatory2").value.trim()
-    if (input2 == "") {
-        document.getElementById("resultMandatory2").value = "Iltimos qiymatingizni qayta kiriting!"
-        return
-    }
-    let result = input2.split("").reverse().join("")
-    document.getElementById("resultMandatory2").value = result
-}
-document.getElementById("btn2Mandatory").addEventListener("click", resultMandatory2)
+function result2() {
+    let inp1 = document.getElementById("input2").value.trim();
+    let inp2 = parseFloat(document.getElementById("input2n2").value.trim());
 
-function clearFildesNum2() {
-    document.getElementById("inputNumMandatory2").value = ""
-    document.getElementById("resultMandatory2").value = ""
+    if (inp1 == "" || isNaN(inp2)) {
+        document.getElementById("result2").value = "Iltimos, qiymatlarni qayta kiriting!";
+        return;
+    }
+
+    let arr = inp1.split(",").map(Number);
+    let value = arr.map(num => num * inp2);
+
+    document.getElementById("result2").value = value.join(", ");
 }
-document.getElementById("clear2").addEventListener("click", clearFildesNum2)
+
+document.getElementById("btn2").addEventListener("click", result2);
+
+function clear2() {
+    document.getElementById("input2").value = "";
+    document.getElementById("input2n2").value = "";
+    document.getElementById("result2").value = "";
+}
+
+document.getElementById("clear2").addEventListener("click", clear2);
 
 // N3:
-function resultMandatory3() {
-    let input = document.getElementById("inputNumMandatory3").value.trim();
-    if (input == "" || isNaN(input.split(",").join(''))) {
-        document.getElementById("resultMandatory3").value = "Iltimos sonlarni qayta kiriting!";
+function result3() {
+    let inp1 = document.getElementById("input3").value.trim();
+
+    if (inp1 == "") {
+        document.getElementById("result3").value = "Iltimos qiymatlarni qayta kiriting!";
         return;
     }
-    let numbers = input.split(",").map(Number)
-    let sum = 0
-    for (let i = 0; i < numbers.length; i++) {
-        sum += numbers[i]
-    }
-    let result = sum / numbers.length;
-    document.getElementById("resultMandatory3").value = result
-}
-document.getElementById("btn3Mandatory").addEventListener("click", resultMandatory3)
 
-function clearFildesNum3() {
-    document.getElementById("inputNumMandatory3").value = ""
-    document.getElementById("resultMandatory3").value = ""
+    let arr = inp1.split(",").map(Number);
+    let result = arr.filter(num => num > 0).reduce((acc, num) => acc + num, 0);
+
+    document.getElementById("result3").value = result;
 }
-document.getElementById("clear3").addEventListener("click", clearFildesNum3)
+
+document.getElementById("btn3").addEventListener("click", result3);
+
+function clear3() {
+    document.getElementById("input3").value = "";
+    document.getElementById("result3").value = "";
+}
+
+document.getElementById("clear3").addEventListener("click", clear3);
 
 // N4:
-function resultMandatory4() {
-    let input = document.getElementById("inputNumMandatory4").value
-    if (input == "") {
-        document.getElementById("resultMandatory4").value = "Iltimos so'larni qayta kiriting!"
-        return
-    }
-    let value = input.split(",")
-    let sum = []
-    for (let i = 0; i < value.length; i++) {
-        sum.push(value[i].length)
-    }
-    let result = sum.join(",")
-    document.getElementById("resultMandatory4").value = result
+function result4() {
+    let inp = document.getElementById("input4").value.trim();
 
-}
-document.getElementById("btn4Mandatory").addEventListener("click", resultMandatory4)
+    if (inp == "") {
+        document.getElementById("result4").value = "Iltimos qiymatlarni qayta kiriting!";
+        return;
+    }
 
-function clearFildesNum4() {
-    document.getElementById("inputNumMandatory4").value = ""
-    document.getElementById("resultMandatory4").value = ""
+    let arr = inp.split(",").map(Number);
+    let value = arr.filter(num => num != 0);
+    let value2 = arr.length - value.length;
+
+    let result = value.concat(Array(value2).fill(0));
+
+    document.getElementById("result4").value = result.join(", ");
 }
-document.getElementById("clear4").addEventListener("click", clearFildesNum4)
+
+document.getElementById("btn4").addEventListener("click", result4);
+
+function clear4() {
+    document.getElementById("input4").value = "";
+    document.getElementById("result4").value = "";
+}
+
+document.getElementById("clear4").addEventListener("click", clear4);
 
 // N5:
-function resultMandatory5() {
-    let input = document.getElementById("inputNumMandatory5").value
-    if (input == "" || isNaN(input.split(",").join(""))) {
-        document.getElementById("resultMandatory5").value = "Iltimos sonlarni qayta kiriting!"
-        return
-    }
-    let numbers = input.split(",").map(Number)
-    let sum = 0
-    let result1 = numbers.filter(function(e) {
-        let num = e % 2 == 1
-        return num += sum
-    })
-    let result2 = result1.join(",")
-    document.getElementById("resultMandatory5").value = result2
-}
-document.getElementById("btn5Mandatory").addEventListener("click", resultMandatory5)
+function result5() {
+    let inp = document.getElementById("input5").value.trim();
 
-function clearFildesNum5() {
-    document.getElementById("inputNumMandatory5").value = ""
-    document.getElementById("resultMandatory5").value = ""
+    if (inp == "") {
+        document.getElementById("result5").value = "Iltimos qiymatlarni qayta kiriting!";
+        return;
+    }
+
+    let arr = inp.split(",").map(Number);
+    let count = {};
+
+    arr.forEach(num => {
+        if (count[num]) {
+            count[num]++;
+        } else {
+            count[num] = 1;
+        }
+    });
+
+    let result1 = 0;
+    let result2 = null;
+
+    for (let num in count) {
+        if (count[num] > result1) {
+            result1 = count[num];
+            result2 = num;
+        }
+    }
+
+    if (result2 !== null) {
+        document.getElementById("result5").value = `Element: ${result2}, Son: ${result1}`;
+    } else {
+        document.getElementById("result5").value = "Natija topilmadi!";
+    }
 }
-document.getElementById("clear5").addEventListener("click", clearFildesNum5)
+
+document.getElementById("btn5").addEventListener("click", result5);
+
+function clear5() {
+    document.getElementById("input5").value = "";
+    document.getElementById("result5").value = "";
+}
+
+document.getElementById("clear5").addEventListener("click", clear5);
 
 // N6:
-function resultMandatory6() {
-    let input1 = document.getElementById("inputNumMandatory6$1").value.trim();
-    let input2 = document.getElementById("inputNumMandatory6$2").value.trim();
+function result6() {
+    let inp = document.getElementById("input6").value.trim();
 
-    if (input1 == "" || input2 == "") {
-        document.getElementById("resultMandatory6").value = "Iltimos qiymatlarni qayta kiriting!"
-        return
+    if (inp == "") {
+        document.getElementById("result6").value = "Iltimos qiymatlarni qayta kiriting!";
+        return;
     }
-    let [name, lastname] = input1.split(",");
-    let [age, year] = input2.split(",");
 
-    let result = {
-        name: name || "Noma'lum",
-        lastname: lastname || "Noma'lum",
-        age: age || "Noma'lum",
-        year: year || "Noma'lum"
-    };
+    let value;
+    try {
+        value = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result6").value = "Kiritilgan ma'lumotlar to'g'ri emas!";
+        return;
+    }
 
-    document.getElementById("resultMandatory6").value =
-        `name: ${result.name}, lastname: ${result.lastname}, age: ${result.age}, year: ${result.year}`;
+    let result = value.flat();
+
+    document.getElementById("result6").value = result.join(", ");
 }
 
-document.getElementById("btn6Mandatory").addEventListener("click", resultMandatory6);
+document.getElementById("btn6").addEventListener("click", result6);
 
-function clearFildesNum6() {
-    document.getElementById("inputNumMandatory6$1").value = "";
-    document.getElementById("inputNumMandatory6$2").value = "";
-    document.getElementById("resultMandatory6").value = "";
+function clear6() {
+    document.getElementById("input6").value = "";
+    document.getElementById("result6").value = "";
 }
 
-document.getElementById("clear6").addEventListener("click", clearFildesNum6);
+document.getElementById("clear6").addEventListener("click", clear6);
 
 // N7:
-function resultMandatory7() {
-    let input = document.getElementById("inputNumMandatory7").value
-    if (input == "") {
-        document.getElementById("resultMandatory7").value = "Iltimos qiymatni qayta kiriting!"
-        return
+function result7() {
+    let inp1 = document.getElementById("input7").value.trim();
+    let inp2 = document.getElementById("input7n2").value.trim();
+
+    if (inp1 === "" && inp2 === "") {
+        document.getElementById("result7").value = "Iltimos qiymatlarni qayta kiriting!";
+        return;
     }
-    let result = input.split(",").map(e => e.trim()).join(", ")
-    document.getElementById("resultMandatory7").value = result
 
-}
-document.getElementById("btn7Mandatory").addEventListener("click", resultMandatory7)
+    let arr1 = inp1.split(",").map(item => item.trim());
+    let arr2 = inp2.split(",").map(item => item.trim());
 
-function clearFildesNum7() {
-    document.getElementById("inputNumMandatory7").value = ""
-    document.getElementById("resultMandatory7").value = ""
+    let number = [...new Set([...arr1, ...arr2])];
+
+    document.getElementById("result7").value = number.join(", ");
 }
-document.getElementById("clear7").addEventListener("click", clearFildesNum7)
+
+document.getElementById("btn7").addEventListener("click", result7);
+
+function clear7() {
+    document.getElementById("input7").value = "";
+    document.getElementById("input7n2").value = "";
+    document.getElementById("result7").value = "";
+}
+
+document.getElementById("clear7").addEventListener("click", clear7);
 
 // N8:
-function resultMandatory8() {
-    let input1 = document.getElementById("inputNumMandatory8$1").value.trim();
-    let input2 = document.getElementById("inputNumMandatory8$2").value.trim();
-    if (input1 == "" || input2 == "") {
-        document.getElementById("resultMandatory8").value = "Iltimos qiymatlarni qayta kiriting!"
-        return
+function result8() {
+    let inp = document.getElementById("input8").value.trim();
+
+    if (inp == "") {
+        document.getElementById("result8").value = "Iltimos qiymatlarni qayta kiriting!";
+        return;
     }
-    let [name, lastname] = input1.split(",");
-    let [age, year] = input2.split(",");
 
-    let object = {
-        name: name || "Noma'lum",
-        lastname: lastname || "Noma'lum",
-        age: age || "Noma'lum",
-        year: year || "Noma'lum"
-    };
-    let result = Object.values(object).join(", ")
+    let arr = inp.split(",").map(Number);
 
-    document.getElementById("resultMandatory8").value = result;
+    let num1 = arr.filter(num => num % 2 === 0);
+    let num2 = arr.filter(num => num % 2 !== 0);
+
+    document.getElementById("result8").value = `Juft: ${num1.join(", ")}, Toq: ${num2.join(", ")}`;
 }
 
-document.getElementById("btn8Mandatory").addEventListener("click", resultMandatory8);
+document.getElementById("btn8").addEventListener("click", result8);
 
-function clearFildesNum8() {
-    document.getElementById("inputNumMandatory8$1").value = "";
-    document.getElementById("inputNumMandatory8$2").value = "";
-    document.getElementById("resultMandatory8").value = "";
+function clear8() {
+    document.getElementById("input8").value = "";
+    document.getElementById("result8").value = "";
 }
 
-document.getElementById("clear8").addEventListener("click", clearFildesNum8);
+document.getElementById("clear8").addEventListener("click", clear8);
 
 // N9:
-function resultMandatory9() {
-    let input = document.getElementById("inputNumMandatory9").value.trim();
+function result9() {
+    let inp1 = document.getElementById("input9").value.trim();
+    let inp2 = document.getElementById("input9n2").value.trim();
 
-    if (input == "" || isNaN(input.split(",").join(""))) {
-        document.getElementById("resultMandatory9").value = "Iltimos sonlarni qayta kiriting!";
+    if (inp1 == "" || inp2 == "") {
+        document.getElementById("result9").value = "Iltimos qiymatlarni qayta kiriting!";
         return;
     }
 
-    let numbers = input.split(",").map(Number);
+    let arr = inp1.split(",").map(Number);
+    let result = arr.includes(Number(inp2));
 
-    let smallest = numbers[0];
-    let largest = numbers[0];
-
-    for (let i = 1; i < numbers.length; i++) {
-        if (numbers[i] < smallest) {
-            smallest = numbers[i];
-        }
-        if (numbers[i] > largest) {
-            largest = numbers[i];
-        }
-    }
-    let result = {
-        min: smallest,
-        max: largest
-    };
-
-    document.getElementById("resultMandatory9").value = `Min:${result.min}, Max:${result.max}`;
+    document.getElementById("result9").value = result;
 }
 
-document.getElementById("btn9Mandatory").addEventListener("click", resultMandatory9);
+document.getElementById("btn9").addEventListener("click", result9);
 
-function clearFildesNum9() {
-    document.getElementById("inputNumMandatory9").value = "";
-    document.getElementById("resultMandatory9").value = "";
+function clear9() {
+    document.getElementById("input9").value = "";
+    document.getElementById("input9n2").value = "";
+    document.getElementById("result9").value = "";
 }
 
-document.getElementById("clear9").addEventListener("click", clearFildesNum9);
+document.getElementById("clear9").addEventListener("click", clear9);
 
 // N10:
-function resultMandatory10() {
-    let input = document.getElementById("inputNumMandatory10").value.trim();
+function result10() {
+    let inp = document.getElementById("input10").value.trim();
 
-    if (input == "") {
-        document.getElementById("resultMandatory10").value = "Iltimos qiymatni qayta kiriting!";
+    if (inp == "") {
+        document.getElementById("result10").value = "Iltimos qiymatlarni qayta kiriting!";
         return;
     }
-    let vowel = "aeuioAEIOU"
-    let count = 0
-    for (const arr of input) {
-        if (vowel.includes(arr)) {
-            count++
+
+    let arr = inp.split(",").map(Number);
+    let maxElement = arr[0];
+    let minElement = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > maxElement) {
+            maxElement = arr[i];
+        }
+        if (arr[i] < minElement) {
+            minElement = arr[i];
         }
     }
 
-    document.getElementById("resultMandatory10").value = `Unli harflar soni:${count}`;
+    document.getElementById("result10").value = `Eng katta: ${maxElement}, Eng kichik: ${minElement}`;
+}
+document.getElementById("btn10").addEventListener("click", result10);
+
+function clear10() {
+    document.getElementById("input10").value = "";
+    document.getElementById("result10").value = "";
 }
 
-document.getElementById("btn10Mandatory").addEventListener("click", resultMandatory10);
+document.getElementById("clear10").addEventListener("click", clear10);
 
-function clearFildesNum10() {
-    document.getElementById("inputNumMandatory10").value = "";
-    document.getElementById("resultMandatory10").value = "";
-}
-
-document.getElementById("clear10").addEventListener("click", clearFildesNum10);
-
+// ### Obyektlar bilan ishlash:
 // N11:
-function resultMandatory11() {
-    let input = document.getElementById("inputNumMandatory11").value.trim();
-    if (input == "" || isNaN(input.split(",").join(''))) {
-        document.getElementById("resultMandatory11").value = "Iltimos sonlarni qayta kiriting!";
+function result11() {
+    let inp = document.getElementById("input11").value.trim();
+
+    if (inp == "") {
+        document.getElementById("result11").value = "Iltimos obyektni kiriting!";
         return;
     }
-    let numbers = input.split(",").map(Number)
-    let result = numbers.map(num => num + 2).join(",")
-    document.getElementById("resultMandatory11").value = result
-}
-document.getElementById("btn11Mandatory").addEventListener("click", resultMandatory11)
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result11").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+    let value = Object.keys(obj).sort();
+    let result = {};
 
-function clearFildesNum11() {
-    document.getElementById("inputNumMandatory11").value = ""
-    document.getElementById("resultMandatory11").value = ""
+    value.forEach(num => {
+        result[num] = obj[num];
+    });
+
+    document.getElementById("result11").value = JSON.stringify(result);
 }
-document.getElementById("clear11").addEventListener("click", clearFildesNum11)
+
+document.getElementById("btn11").addEventListener("click", result11);
+
+function clear11() {
+    document.getElementById("input11").value = "";
+    document.getElementById("result11").value = "";
+}
+
+document.getElementById("clear11").addEventListener("click", clear11);
 
 // N12:
-function resultMandatory12() {
-    let input = document.getElementById("inputNumMandatory12").value.trim();
+function result12() {
+    let inp = document.getElementById("input12").value.trim();
 
-    if (input === "") {
-        document.getElementById("resultMandatory12").value = "Iltimos qiymatni qayta kiriting!";
+    if (inp == "") {
+        document.getElementById("result12").value = "Iltimos obyektni kiriting!";
         return;
     }
 
-    let words = input.split(",");
-    let longestWord = "";
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result12").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+    let value = Object.keys(obj);
+    let value2 = Object.values(obj);
+
+    document.getElementById("result12").value = `Kalitlar: [${value.join(", ")}], Qiymatlar: [${value2.join(", ")}]`;
+}
+
+document.getElementById("btn12").addEventListener("click", result12);
+
+function clear12() {
+    document.getElementById("input12").value = "";
+    document.getElementById("result12").value = "";
+}
+
+document.getElementById("clear12").addEventListener("click", clear12);
+
+// N13:
+function result13() {
+    let inp1 = document.getElementById("input13").value.trim();
+    let inp2 = document.getElementById("input13n2").value.trim();
+
+    if (inp1 == "" || inp2 == "") {
+        document.getElementById("result13").value = "Iltimos har ikkala obyektni kiriting!";
+        return;
+    }
+
+    let objA, objB;
+    try {
+        objA = JSON.parse(inp1);
+        objB = JSON.parse(inp2);
+    } catch (e) {
+        document.getElementById("result13").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let mergedObj = {...objA, ...objB };
+
+    document.getElementById("result13").value = JSON.stringify(mergedObj);
+}
+
+document.getElementById("btn13").addEventListener("click", result13);
+
+function clear13() {
+    document.getElementById("input13").value = "";
+    document.getElementById("input13n2").value = "";
+    document.getElementById("result13").value = "";
+}
+
+document.getElementById("clear13").addEventListener("click", clear13);
+
+// N14:
+function result14() {
+    let inp = document.getElementById("input14").value.trim();
+
+    if (inp == "") {
+        document.getElementById("result14").value = "Iltimos obyektni kiriting!";
+        return;
+    }
+
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result14").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let total = 0;
+    for (let key in obj) {
+        if (typeof obj[key] === 'number') {
+            total += obj[key];
+        }
+    }
+
+    document.getElementById("result14").value = `Yig‘indi: ${total}`;
+}
+
+document.getElementById("btn14").addEventListener("click", result14);
+
+function clear14() {
+    document.getElementById("input14").value = "";
+    document.getElementById("result14").value = "";
+}
+
+document.getElementById("clear14").addEventListener("click", clear14);
+
+// N15:
+function result15() {
+    let inp = document.getElementById("input15").value.trim();
+    let inp2 = document.getElementById("input15n2").value.trim();
+
+    if (inp == "" || inp2 == "") {
+        document.getElementById("result15").value = "Iltimos obyektni va yangi kalit nomini kiriting!";
+        return;
+    }
+
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result15").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    if (obj.hasOwnProperty("oldKey")) {
+        obj[inp2] = obj["oldKey"];
+        delete obj["oldKey"];
+    } else {
+        document.getElementById("result15").value = "Kalit topilmadi!";
+        return;
+    }
+
+    document.getElementById("result15").value = JSON.stringify(obj);
+}
+
+document.getElementById("btn15").addEventListener("click", result15);
+
+function clear15() {
+    document.getElementById("input15").value = "";
+    document.getElementById("input15n2").value = "";
+    document.getElementById("result15").value = "";
+}
+
+document.getElementById("clear15").addEventListener("click", clear15);
+
+// N16:
+function result16() {
+    let inp = document.getElementById("input16").value.trim();
+    let inp2 = document.getElementById("input16n2").value.trim();
+
+    if (inp == "" || inp2 == "") {
+        document.getElementById("result16").value = "Iltimos obyektni va olib tashlanadigan kalitni kiriting!";
+        return;
+    }
+
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result16").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let newObj = {...obj };
+    delete newObj[inp2];
+
+    document.getElementById("result16").value = JSON.stringify(newObj);
+}
+
+document.getElementById("btn16").addEventListener("click", result16);
+
+function clear16() {
+    document.getElementById("input16").value = "";
+    document.getElementById("input16key").value = "";
+    document.getElementById("result16").value = "";
+}
+
+document.getElementById("clear16").addEventListener("click", clear16);
+
+// N17:
+function result17() {
+    let inp = document.getElementById("input17").value.trim();
+
+    if (inp == "") {
+        document.getElementById("result17").value = "Iltimos massivni kiriting!";
+        return;
+    }
+
+    let arr;
+    try {
+        arr = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result17").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let result = {};
+    arr.forEach(item => {
+        if (result[item.key]) {
+            result[item.key].push(item.value);
+        } else {
+            result[item.key] = [item.value];
+        }
+    });
+
+    document.getElementById("result17").value = JSON.stringify(result);
+}
+
+document.getElementById("btn17").addEventListener("click", result17);
+
+function clear17() {
+    document.getElementById("input17").value = "";
+    document.getElementById("result17").value = "";
+}
+
+document.getElementById("clear17").addEventListener("click", clear17);
+
+// N18:
+function result18() {
+    let inp = document.getElementById("input18").value.trim();
+
+    if (inp === "") {
+        document.getElementById("result18").value = "Iltimos obyektni kiriting!";
+        return;
+    }
+
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result18").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let result = [];
+    for (let key in obj) {
+        if (Array.isArray(obj[key])) {
+            result = result.concat(obj[key]);
+        }
+    }
+
+    document.getElementById("result18").value = JSON.stringify(result);
+}
+
+document.getElementById("btn18").addEventListener("click", result18);
+
+function clear18() {
+    document.getElementById("input18").value = "";
+    document.getElementById("result18").value = "";
+}
+
+document.getElementById("clear18").addEventListener("click", clear18);
+
+// N19:
+function result19() {
+    let inp = document.getElementById("input19").value.trim();
+    let inp2 = document.getElementById("input19n2").value.trim();
+
+    if (inp === "" || inp2 === "") {
+        document.getElementById("result19").value = "Iltimos ikkita massivni kiriting!";
+        return;
+    }
+
+    let arr1, arr2;
+    try {
+        arr1 = JSON.parse(inp);
+        arr2 = JSON.parse(inp2);
+    } catch (e) {
+        document.getElementById("result19").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let result = arr1.filter(objA => arr2.some(objB => JSON.stringify(objA) === JSON.stringify(objB)));
+
+    document.getElementById("result19").value = JSON.stringify(result);
+}
+
+document.getElementById("btn19").addEventListener("click", result19);
+
+function clear19() {
+    document.getElementById("input19").value = "";
+    document.getElementById("input19n2").value = "";
+    document.getElementById("result19").value = "";
+}
+
+document.getElementById("clear19").addEventListener("click", clear19);
+
+// N20:
+function getDepth(obj) {
+    let depth = 0;
+    for (let key in obj) {
+        if (typeof obj[key] === 'object' && obj[key] !== null) {
+            depth = Math.max(depth, getDepth(obj[key]));
+        }
+    }
+    return depth + 1;
+}
+
+function result20() {
+    let inp = document.getElementById("input20").value.trim();
+
+    if (inp === "") {
+        document.getElementById("result20").value = "Iltimos obyektni kiriting!";
+        return;
+    }
+
+    let obj;
+    try {
+        obj = JSON.parse(inp);
+    } catch (e) {
+        document.getElementById("result20").value = "Iltimos to'g'ri formatda kiriting!";
+        return;
+    }
+
+    let depth = getDepth(obj);
+
+    document.getElementById("result20").value = depth;
+}
+
+document.getElementById("btn20").addEventListener("click", result20);
+
+function clear20() {
+    document.getElementById("input20").value = "";
+    document.getElementById("result20").value = "";
+}
+
+document.getElementById("clear20").addEventListener("click", clear20);
+
+// String bilan ishlash:
+// N21:
+function isPalindrome(str) {
+    str = str.replace(/\s+/g, '').toLowerCase();
+    return str === str.split('').reverse().join('');
+}
+
+function result21() {
+    let inp = document.getElementById("input21").value.trim();
+
+    if (inp === "") {
+        document.getElementById("result21").value = "Iltimos so'z yoki jumlani kiriting!";
+        return;
+    }
+
+    let palindromeCheck = isPalindrome(inp);
+
+    document.getElementById("result21").value = palindromeCheck ? "Bu palindrom." : "Bu palindrom emas.";
+}
+
+document.getElementById("btn21").addEventListener("click", result21);
+
+function clear21() {
+    document.getElementById("input21").value = "";
+    document.getElementById("result21").value = "";
+}
+
+document.getElementById("clear21").addEventListener("click", clear21);
+
+// N22:
+function reverseWords(str) {
+    return str.split(' ').reverse().join(' ');
+}
+
+function result22() {
+    let inp = document.getElementById("input22").value.trim();
+
+    if (inp === "") {
+        document.getElementById("result22").value = "Iltimos jumla kiriting!";
+        return;
+    }
+
+    let reversed = reverseWords(inp);
+
+    document.getElementById("result22").value = reversed;
+}
+
+document.getElementById("btn22").addEventListener("click", result22);
+
+function clear22() {
+    document.getElementById("input22").value = "";
+    document.getElementById("result22").value = "";
+}
+
+document.getElementById("clear22").addEventListener("click", clear22);
+
+// N23:
+function findLongestWord(str) {
+    const words = str.split(' ');
+    let longestWord = '';
+
     for (const word of words) {
         if (word.length > longestWord.length) {
             longestWord = word;
         }
     }
-
-    document.getElementById("resultMandatory12").value = longestWord;
+    return longestWord;
 }
 
-document.getElementById("btn12Mandatory").addEventListener("click", resultMandatory12);
+function result23() {
+    let inp = document.getElementById("input23").value.trim();
 
-function clearFildesNum12() {
-    document.getElementById("inputNumMandatory12").value = "";
-    document.getElementById("resultMandatory12").value = "";
-}
-
-document.getElementById("clear12").addEventListener("click", clearFildesNum12);
-
-// N13:
-function resultMandatory13() {
-    let input = document.getElementById("inputNumMandatory13").value.trim();
-
-    if (input == "") {
-        document.getElementById("resultMandatory13").value = "Iltimos raqamlarni qayta kiriting!";
-        return;
-    }
-    let numbers = input.split(",").map(num => parseFloat(num.trim()));
-    let sum = 0;
-    let count = numbers.length;
-    for (let number of numbers) {
-        sum += number;
-    }
-    let average = sum / count;
-    let result = numbers.filter(number => number > average);
-    document.getElementById("resultMandatory13").value = result.join(", ");
-}
-
-document.getElementById("btn13Mandatory").addEventListener("click", resultMandatory13);
-
-function clearFildesNum13() {
-    document.getElementById("inputNumMandatory13").value = "";
-    document.getElementById("resultMandatory13").value = "";
-}
-
-document.getElementById("clear13").addEventListener("click", clearFildesNum13);
-
-// N14:
-function resultMandatory14() {
-    let input = document.getElementById("inputNumMandatory14").value.trim();
-
-    if (input == "") {
-        document.getElementById("resultMandatory14").value = "Iltimos raqamlarni qayta kiriting!";
-        return;
-    }
-    let value = input.split(" ").map(arr => arr.slice(1, -2))
-    let result = value.join(" ")
-    document.getElementById("resultMandatory14").value = result;
-}
-
-document.getElementById("btn14Mandatory").addEventListener("click", resultMandatory14);
-
-function clearFildesNum14() {
-    document.getElementById("inputNumMandatory14").value = "";
-    document.getElementById("resultMandatory14").value = "";
-}
-
-document.getElementById("clear14").addEventListener("click", clearFildesNum14);
-
-// N15:
-function resultMandatory15() {
-    let input = document.getElementById("inputNumMandatory15").value.trim();
-
-    if (input == "" || isNaN(input.split(",").join(''))) {
-        document.getElementById("resultMandatory15").value = "Iltimos raqamlarni qayta kiriting!";
-        return;
-    }
-    let numbers = input.split(",").map(num => parseFloat(num.trim() * 2))
-    let count = 0
-    for (const arr of numbers) {
-        count += arr
-    }
-    let result = count
-    document.getElementById("resultMandatory15").value = result;
-}
-
-document.getElementById("btn15Mandatory").addEventListener("click", resultMandatory15);
-
-function clearFildesNum15() {
-    document.getElementById("inputNumMandatory15").value = "";
-    document.getElementById("resultMandatory15").value = "";
-}
-
-document.getElementById("clear15").addEventListener("click", clearFildesNum15);
-
-// N16:
-function resultMandatory16() {
-    let input = document.getElementById("inputNumMandatory16").value.trim();
-
-    if (input == "") {
-        document.getElementById("resultMandatory16").value = "Iltimos raqamlarni qayta kiriting!";
-        return;
-    }
-    let result = input.split(",").reverse()
-    document.getElementById("resultMandatory16").value = result;
-}
-
-document.getElementById("btn16Mandatory").addEventListener("click", resultMandatory16);
-
-function clearFildesNum16() {
-    document.getElementById("inputNumMandatory16").value = "";
-    document.getElementById("resultMandatory16").value = "";
-}
-
-document.getElementById("clear16").addEventListener("click", clearFildesNum16);
-
-// N17:
-function resultMandatory17() {
-    let input = document.getElementById("inputNumMandatory17").value.trim();
-
-    if (input == "") {
-        document.getElementById("resultMandatory17").value = "Iltimos raqamlarni qayta kiriting!";
-        return;
-    }
-    let result = input.split(" ").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-    document.getElementById("resultMandatory17").value = result;
-}
-
-document.getElementById("btn17Mandatory").addEventListener("click", resultMandatory17);
-
-function clearFildesNum17() {
-    document.getElementById("inputNumMandatory17").value = "";
-    document.getElementById("resultMandatory17").value = "";
-}
-
-document.getElementById("clear17").addEventListener("click", clearFildesNum17);
-
-// N18:
-function resultMandatory18() {
-    let input = document.getElementById("inputNumMandatory18").value.trim();
-
-    if (input === "" || isNaN(input.split(",").join(''))) {
-        document.getElementById("resultMandatory18").value = "Iltimos, yoshlarni qayta kiriting!";
-        return;
-    }
-    let ageArray = input.split(",").map(age => parseInt(age.trim())).filter(Number.isFinite);
-    let ageObjects = ageArray.map(age => ({ age }));
-    let result = ageObjects.filter(obj => obj.age >= 18);
-
-    document.getElementById("resultMandatory18").value =
-        result.length > 0 ?
-        `18 yoshdan katta yoshlar: ${result.map(obj => obj.age).join(", ")}` :
-        "18 yoshdan katta kiritilgan yosh yo'q.";
-}
-
-document.getElementById("btn18Mandatory").addEventListener("click", resultMandatory18);
-
-function clearFildesNum18() {
-    document.getElementById("inputNumMandatory18").value = "";
-    document.getElementById("resultMandatory18").value = "";
-}
-
-document.getElementById("clear18").addEventListener("click", clearFildesNum18);
-
-// N19:
-function resultMandatory19() {
-    let input1 = document.getElementById("inputNumMandatory19$1").value.trim().toLowerCase();
-    let input2 = document.getElementById("inputNumMandatory19$2").value.trim();
-    if (input1 == "") {
-        document.getElementById("resultMandatory19").value = "Iltimos qiymatni qayta kiriting!";
-        return;
-    }
-    if (input2 == "") {
-        document.getElementById("resultMandatory19").value = "Iltimos ko'p martda qaytarilgan elementni kiritishingizni so`raymiz!"
-        return;
-    }
-    let input2Ar = input2.split(" ")
-    let count = input1.split("").filter(el => input2Ar.includes(el)).length
-    let result = count
-    document.getElementById("resultMandatory19").value = result;
-}
-
-document.getElementById("btn19Mandatory").addEventListener("click", resultMandatory19);
-
-function clearFildesNum19() {
-    document.getElementById("inputNumMandatory19$1").value = "";
-    document.getElementById("inputNumMandatory19$2").value = "";
-    document.getElementById("resultMandatory19").value = "";
-}
-
-document.getElementById("clear19").addEventListener("click", clearFildesNum19);
-
-// N20:
-function resultMandatory20() {
-    let input1 = document.getElementById("inputNumMandatory20$1").value.trim().toLowerCase().split("");
-    let input2 = document.getElementById("inputNumMandatory20$2").value.trim().toLowerCase().split("");
-    if (input1 == "" || input2 == "") {
-        document.getElementById("resultMandatory20").value = "Iltimos qiymatlarni qayta kiriting!";
-        return;
-    }
-    let count = input1.filter(el => input2.includes(el))
-    let result = count.join("")
-    document.getElementById("resultMandatory20").value = result;
-}
-
-document.getElementById("btn20Mandatory").addEventListener("click", resultMandatory20);
-
-function clearFildesNum20() {
-    document.getElementById("inputNumMandatory20$1").value = "";
-    document.getElementById("inputNumMandatory20$2").value = "";
-    document.getElementById("resultMandatory20").value = "";
-}
-
-document.getElementById("clear20").addEventListener("click", clearFildesNum20);
-
-// Ixtiyoriy masalalar:
-// Ushbu masalalarni bajarish ixtiyoriy. (ixtiyoriy ishlansa ball qoshib beriladi - 15 ball)     ekan :)
-// N1:
-function resultOptional1() {
-    let input = document.getElementById("inputNumOptional1").value.trim().toLowerCase().split("");
-    if (input == "") {
-        document.getElementById("resultOptional1").value = "Iltimos qiymatlarni qayta kiriting!";
-        return;
-    }
-    let value = {}
-    let count = 0
-    let mostMeetEl = ''
-    for (const el of input) {
-        value[el] = (value[el] || 0) + 1
-        if (value[el] > count) {
-            count = value[el]
-            mostMeetEl = el
-        }
-    }
-    document.getElementById("resultOptional1").value = `Eng ko'p uchragan harf: '${mostMeetEl}' (${count} marta)`;
-}
-
-document.getElementById("btn1Optional").addEventListener("click", resultOptional1);
-
-function clearFildesNum1Optional() {
-    document.getElementById("inputNumOptional1").value = "";
-    document.getElementById("resultOptional1").value = "";
-}
-
-document.getElementById("clear1Optional").addEventListener("click", clearFildesNum1Optional);
-
-// N2:
-function resultOptional2() {
-    let input1 = document.getElementById("inputNumOptional2$1").value.trim().toLowerCase().split("");
-    let input2 = document.getElementById("inputNumOptional2$2").value.trim().toLowerCase().split("");
-    if (input1 == "" || input2 == "") {
-        document.getElementById("resultOptional2").value = "Iltimos qiymatlarni qayta kiriting!";
-        return;
-    }
-    let value = input1.filter(el => input2.includes(el))
-    let result = value.length > 0 ? value : "O'xshash element topilmadi!"
-    document.getElementById("resultOptional2").value = result;
-}
-document.getElementById("btn2Optional").addEventListener("click", resultOptional2);
-
-function clearFildesNum2Optional() {
-    document.getElementById("inputNumOptional2$1").value = "";
-    document.getElementById("inputNumOptional2$2").value = "";
-    document.getElementById("resultOptional2").value = "";
-}
-
-document.getElementById("clear2Optional").addEventListener("click", clearFildesNum2Optional);
-
-// N3:
-function resultOptional3() {
-    let input = document.getElementById("inputNumOptional3").value.trim();
-
-    if (input == "") {
-        document.getElementById("resultOptional3").value = "Iltimos, qiymatni qayta kiriting!";
+    if (inp === "") {
+        document.getElementById("result23").value = "Iltimos jumla kiriting!";
         return;
     }
 
-    let value = input.split(";").map(item => {
-        let [name, age] = item.trim().split(",");
-        return { name: name.trim(), age: Number(age.trim()) };
-    });
+    let longestWord = findLongestWord(inp);
 
-    let sortValue = value.sort((a, b) => a.age - b.age);
-    let result = sortValue.map(student => `${student.name}, ${student.age}`).join("; ");
-
-    document.getElementById("resultOptional3").value = result;
+    document.getElementById("result23").value = longestWord;
 }
 
-document.getElementById("btn3Optional").addEventListener("click", resultOptional3);
+document.getElementById("btn23").addEventListener("click", result23);
 
-function clearFildesNum3Optional() {
-    document.getElementById("inputNumOptional3").value = "";
-    document.getElementById("resultOptional3").value = "";
+function clear23() {
+    document.getElementById("input23").value = "";
+    document.getElementById("result23").value = "";
 }
 
-document.getElementById("clear3Optional").addEventListener("click", clearFildesNum3Optional);
+document.getElementById("clear23").addEventListener("click", clear23);
 
-// N4:
-function resultOptional4() {
-    let input = document.getElementById("inputNumOptional4").value.trim();
-    if (input === "") {
-        document.getElementById("resultOptional4").innerText = "Iltimos, qiymatlarni kiriting!";
+// N24:
+function duplicateCharacter(str, char) {
+    return str.split('').map(c => c === char ? c + char : c).join('');
+}
+
+function result24() {
+    let inp = document.getElementById("input24").value;
+    let char = document.getElementById("charToDuplicate").value;
+
+    if (inp === "" || char === "") {
+        document.getElementById("result24").value = "Iltimos string va harfni kiriting!";
         return;
     }
 
-    let inputObj = {};
-    let pairs = input.split(",");
-    for (let pair of pairs) {
-        let [key, value] = pair.split(":").map(el => el.trim());
-        inputObj[key] = isNaN(value) ? value : Number(value);
-    }
+    let duplicated = duplicateCharacter(inp, char);
 
-    let newObj = {};
-    for (let key in inputObj) {
-        newObj[key] = typeof inputObj[key] === "number" ? inputObj[key] * 2 : inputObj[key];
-    }
-
-    document.getElementById("resultOptional4").innerText = JSON.stringify(newObj, null, 2);
+    document.getElementById("result24").value = duplicated;
 }
 
-document.getElementById("btn4Optional").addEventListener("click", resultOptional4);
+document.getElementById("btn24").addEventListener("click", result24);
 
-function clearFields4Optional() {
-    document.getElementById("inputNumOptional4").value = "";
-    document.getElementById("resultOptional4").innerText = "";
+function clear24() {
+    document.getElementById("input24").value = "";
+    document.getElementById("charToDuplicate").value = "";
+    document.getElementById("result24").value = "";
 }
 
-document.getElementById("clear4Optional").addEventListener("click", clearFields4Optional);
+document.getElementById("clear24").addEventListener("click", clear24);
 
-// N5:
-function resultOptional5() {
-    let input = document.getElementById("inputNumOptional5").value.trim();
-    if (input == "") {
-        document.getElementById("resultOptional5").value = "Iltimos, qiymatni qayta kiriting!";
+// N25:
+function removeNumbers(str) {
+    return str.replace(/[0-9]/g, '');
+}
+
+function result25() {
+    let inp = document.getElementById("input25").value;
+
+    if (inp === "") {
+        document.getElementById("result25").value = "Iltimos stringni kiriting!";
         return;
     }
 
-    let numbers = input.split(",").map(item => Number(item.trim()));
-    let value = [];
-    let count = 0;
+    let cleanedString = removeNumbers(inp);
 
-    for (let num of numbers) {
-        if (!value.includes(num)) {
-            value.push(num);
-            count += num;
-        }
-    }
-
-    document.getElementById("resultOptional5").value = `Yig'indi: ${count}`;
+    document.getElementById("result25").value = cleanedString;
 }
 
-document.getElementById("btn5Optional").addEventListener("click", resultOptional5);
+document.getElementById("btn25").addEventListener("click", result25);
 
-function clearFildesNum5Optional() {
-    document.getElementById("inputNumOptional5").value = "";
-    document.getElementById("resultOptional5").value = "";
+function clear25() {
+    document.getElementById("input25").value = "";
+    document.getElementById("result25").value = "";
 }
 
-document.getElementById("clear5Optional").addEventListener("click", clearFildesNum5Optional);
+document.getElementById("clear25").addEventListener("click", clear25);
